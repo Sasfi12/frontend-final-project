@@ -1,0 +1,20 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .title {
+        text-decoration: underline;
+        font-size: 2rem;
+    }
+    .nav-options {
+        width: 300px;
+        display: flex;
+        justify-content: space-around;
+    }
+    .nav-img {
+        display: flex;
+        * {
+            cursor: pointer;
+        }
+    }
+}

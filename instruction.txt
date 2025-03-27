@@ -2,9 +2,9 @@ Page d'accueil :
 
     Navbar pour la navigation avec des boutons pour passer d'une page à une autre , une icône pour accéder au panier/favoris.
     En-tête avec un carrousel présentant 5 produits aléatoire.
-    Section mettant en avant des elements au choix.
-    Section présentant des produits à bien notés.
-    Lorsqu'on clique sur un produit, redirection vers sa page de détails.
+    Section mettant en avant des elements au choix.  
+    Section présentant des produits à bien notés. --
+    Lorsqu'on clique sur un produit, redirection vers sa page de détails. V 
  
 Page produit :
 

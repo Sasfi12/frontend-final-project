@@ -7,19 +7,23 @@ import { DataProvider } from "../data-provider"
 export default function Page() {
   const data = useContext(DataProvider).data
     return (
+      <div>
+        <h1 className="title-products-section">Our Products</h1>
       <ul className="articles">
         
         { data ? 
-        data.map((post) => (
-          <li key={post.id}>
-            <h1>{post.title}</h1>
+        data.map((elem) => (
+          <li key={elem.id}>
+            <h1>{elem.title}</h1>
             <div className="img-container">
-              <img src={post.image_url} alt="" />
+              <img src={elem.image_url} alt="" />
             </div>
             
-            <Link href={`/products/${post.id.toString()}`}>See more</Link>
+            <Link className="see-more" href={`/products/${elem.id.toString()}`}>See more</Link>
           </li>
         )) : <h1>Loading...</h1>}
       </ul>
+    </div>
     )
+    
   }

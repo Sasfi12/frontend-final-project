@@ -9,13 +9,7 @@ export default function Home() {
     <div>
       <h1>Nos recommendations : </h1>
     <div>
-      { data ?
-      data.map((e) => {
-        return (
-          <div key={e.id}>{e.title}</div>
-        )
-      }) : 
-      <h1>Loading...</h1>}
+      
     </div>
     </div>
   );

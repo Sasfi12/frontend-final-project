@@ -19,6 +19,6 @@ export default function Data ({children}) {
                 {children}
             </DataProvider.Provider>
             }
-        </>
+        </> 
     )
 }

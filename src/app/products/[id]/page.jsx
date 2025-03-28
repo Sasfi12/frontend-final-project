@@ -1,18 +1,13 @@
 "use client"
 import { useParams } from "next/navigation"
-import { useState , useEffect } from "react";
+import { useContext } from "react";
 import axios from "axios";
 import Link from "next/link";
+import { DataProvider } from "@/app/data-provider";
 export default function Details() {
     const id = useParams()
-    const [data , setData] = useState(null) ;  
-    const [Error , setError] = useState(null) ; 
-    let selected ;  
-    useEffect(() => {
-      axios.get("https://example-data.draftbit.com/books")
-      .then((response) => setData(response.data) )
-      .catch((error) => setError(error))
-    }, [])
+    const data = useContext(DataProvider).data 
+    let selected ;
     if(data) {selected = data.find((e) => e.id == id.id ) ; }
 
     

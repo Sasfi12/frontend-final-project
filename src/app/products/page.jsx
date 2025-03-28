@@ -5,8 +5,7 @@ import axios from "axios"
 import "./products.css"
 import { DataProvider } from "../data-provider"
 export default function Page() {
-  const data = useContext(DataProvider)
-  console.log(data)
+  const data = useContext(DataProvider).data
     return (
       <ul className="articles">
         

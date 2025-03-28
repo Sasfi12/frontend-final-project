@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useContext } from "react";
 import { DataProvider } from "./data-provider";
 import Link from "next/link";
+import Count from "./components/count/Count";
 export default function Home() {
   const data = useContext(DataProvider).data
   return (

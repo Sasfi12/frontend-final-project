@@ -15,7 +15,7 @@ export default function Data ({children}) {
     return (
         <>
         {data &&
-            <DataProvider.Provider value={{data , setData}}>
+            <DataProvider.Provider value={{data}}>
                 {children}
             </DataProvider.Provider>
             }

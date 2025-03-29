@@ -20,7 +20,7 @@ export default function Page() {
     return (
       <div>
         <h1 className="title-products-section">Our Products</h1>
-        <div>
+        <div className="input-select">
         <input type="text" className="border-5" onChange={(event) => searchMade(event)}/>
         <select className="border-5" onChange={(event) => selectedFilter(event)} name="filters" id="filters">
           <option className="border-5" value="title">Search by title </option>

@@ -1,8 +1,8 @@
 "use client"
 import { useParams } from "next/navigation"
 import { useContext } from "react";
-import axios from "axios";
 import Link from "next/link";
+import "./product.css"
 import { DataProvider } from "@/app/data-provider";
 export default function Details() {
     const id = useParams()
@@ -13,7 +13,7 @@ export default function Details() {
     
     return (
         selected ? 
-        <div>
+        <div className="product-container">
             this is your selected products id  : {selected.id}
             <br />
             {selected.title}

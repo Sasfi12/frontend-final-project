@@ -1,7 +1,6 @@
 "use client"
 import { useContext, useEffect, useState } from "react"
 import Link from "next/link"
-import axios from "axios"
 import "./products.css"
 import { DataProvider } from "../data-provider"
 export default function Page() {
@@ -9,6 +8,7 @@ export default function Page() {
   const [filter , setFilter] = useState("title")
   const [products , setProducts] = useState(useContext(DataProvider).data)
   const [data , setData] = useState("")
+  const intFilters = ["id" , "above" , "below"]
   const selectedFilter = (e) => {
     setFilter(e.target.options[e.target.selectedIndex].value)
   }
@@ -84,7 +84,8 @@ useEffect(() => {
           
         )) : <h1>Loading...</h1>}
         
-        {data && data.length <= 0 && <h1>Article searched not found</h1>}
+        {data && data.length <= 0 && intFilters.includes(filter) ? <h1>Please enter a valid numerical value to find what you are looking for</h1>
+        : data && data.length <= 0 && <h1>No articles meet the search conditions</h1>}
       </ul>
 
     </div>

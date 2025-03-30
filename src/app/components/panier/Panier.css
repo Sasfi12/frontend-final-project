@@ -1,0 +1,13 @@
+.panier-wrapper {
+    height: 2000px;
+    width: 400px;
+    background-color: burlywood;
+    position: absolute;
+    right: 0;
+    top: 0;
+   .close-button {
+        display: flex;
+        width: fit-content;
+        cursor: pointer;
+   }
+}

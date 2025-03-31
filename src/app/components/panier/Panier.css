@@ -13,13 +13,32 @@
                display: flex;
                width: fit-content;
                cursor: pointer;
+               border: solid;
+               border-radius: 50px; 
+               padding: 5px;
+               background-color: brown;
+               transition: 0.5s;
+               &:hover {
+                    transition: 0.2s;
+                    background-color: red;
+               }
+               &:active {
+                    transition: 0.2s;
+                    background-color: rgb(233, 81, 81);
+               }
           }
      }
      .panier-elem {
           display: flex;
+          .panier-elem-text {
+               display: flex;
+               flex-direction: column;
+               justify-content: space-between;
+               
+          }
           img {
                height: 100px;
-               width: 100px;
+               min-width: 100px;
           }
      }
    

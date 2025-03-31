@@ -9,13 +9,20 @@ export const HandlePanier = createSlice(
         initialState,
         reducers: {
             addToCart : (state , action) => {
-                state.content = [...state.content , action.payload]
+                let check = true ; 
+                state.content.forEach((elem) => {
+                    if(elem.id === action.payload.id) {
+                        check = false  
+                    } 
+                    
+                })
+                if(check) state.content = [...state.content , action.payload]
                 
 
                 
             }, 
             removeFromCart : () => {
-
+                state.content.forEach
             }, 
             resetCart : (state  ) => {
                 state.content = initialState.content

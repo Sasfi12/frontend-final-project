@@ -57,6 +57,18 @@
         .see-more , p , h1  {
             font-size: 0.95rem;
         }
+        .see-more {
+            border: solid;
+            border-radius: 50px;
+            padding: 3px;
+            background-color: rgb(245, 245, 189);
+            &:hover {
+                background-color: yellow;
+            }
+            &:active {
+                background-color: gold;
+            }
+        }
         &:hover {
             background-color: beige;
             img {

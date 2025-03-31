@@ -1,7 +1,5 @@
 "use client";
-import Image from "next/image";
 import "./main.css"
-import ReadLeaf from "../../public/ReadLeaf.png"
 import { useContext } from "react";
 import { DataProvider } from "./data-provider";
 import Carousel from "./components/carousel/Carousel";

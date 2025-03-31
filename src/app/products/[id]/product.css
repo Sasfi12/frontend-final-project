@@ -4,4 +4,21 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
-}
+    .nav-options {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        .option {
+            border: solid;
+            border-radius: 20px;
+            transition: 0.2s;
+            &:hover {
+                background-color: olivedrab;
+            }
+            &:active {
+                transition: 0.1s;
+                background-color: rgb(188, 226, 112);
+            }
+        }
+    }
+}   

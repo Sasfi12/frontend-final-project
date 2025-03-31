@@ -74,7 +74,7 @@ useEffect(() => {
             <h1>{elem.title}</h1>
             
             
-            <p>{elem.rating}</p>
+            <p>{elem.rating} / 5</p>
             <div className="img-container">
               <img src={elem.image_url} alt="" />
             </div>

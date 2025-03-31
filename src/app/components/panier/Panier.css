@@ -2,12 +2,25 @@
     height: 2000px;
     width: 400px;
     background-color: burlywood;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
-   .close-button {
-        display: flex;
-        width: fit-content;
-        cursor: pointer;
-   }
+    z-index: 1;
+     .buttons {
+          display: flex;
+          justify-content: space-evenly;
+          .close-button , .reset-button {
+               display: flex;
+               width: fit-content;
+               cursor: pointer;
+          }
+     }
+     .panier-elem {
+          display: flex;
+          img {
+               height: 100px;
+               width: 100px;
+          }
+     }
+   
 }

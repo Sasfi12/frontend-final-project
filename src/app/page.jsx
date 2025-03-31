@@ -11,7 +11,7 @@ export default function Home() {
   return (
     data ? 
     <div className="main-page min-w-full ">
-      <Image src={ReadLeaf} height={250} width={250} alt="ReadLeaf logo"></Image>
+      <Image src={ReadLeaf} height={250} width={250} alt="ReadLeaf logo"/>
       <h1 className="title text-5xl text-center">Welcome to ReadLeaf</h1> 
       <Carousel/>
       <Featured/>

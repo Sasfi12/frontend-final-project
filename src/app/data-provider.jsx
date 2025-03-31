@@ -14,11 +14,12 @@ export default function Data ({children}) {
     if(error ) return <div>Error : {error}</div>
     return (
         <>
-        {data &&
+        {data ?
             <DataProvider.Provider value={{data}}>
                 {children}
             </DataProvider.Provider>
-            }
+              : 
+              <h1>Loading...</h1>}
         </> 
     )
 }

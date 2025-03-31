@@ -16,7 +16,7 @@ export default function Navbar() {
     return (
     <div className="nav-panier-container">
         <nav>
-                <Image height={100} width={100} src={logo} alt="ReadLeaf_logo"></Image>
+                <Image height={100} width={100} src={logo} alt="ReadLeaf_logo"/>
             <div className="nav-options">
                 <Link href="/">Home</Link>
                 <Link href="/products">Products</Link>

@@ -1,21 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     toggle: false, 
-    content : {}
+    content : []
 }
 export const HandlePanier = createSlice(
     {
         name:"panier" ,
         initialState,
         reducers: {
-            addToCart : () => {
+            addToCart : (state , action) => {
+                state.content = [...state.content , action.payload]
+                
 
+                
             }, 
             removeFromCart : () => {
 
             }, 
-            resetCart : () => {
-
+            resetCart : (state  ) => {
+                state.content = initialState.content
             },
             changeToggle : (state) => {
                 state.toggle = !state.toggle
@@ -24,5 +27,5 @@ export const HandlePanier = createSlice(
 
     }
 )
-export const {changeToggle} = HandlePanier.actions
+export const {changeToggle , addToCart , removeFromCart , resetCart} = HandlePanier.actions
 export default HandlePanier.reducer

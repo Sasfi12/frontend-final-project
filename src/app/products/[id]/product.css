@@ -22,3 +22,15 @@
         }
     }
 }   
+.add-to-cart {
+    border: solid;
+    padding: 5px;
+    border-radius: 50px;
+    background-color: aqua;
+    &:hover {
+        background-color: blue;
+    }
+    &:active {
+        background-color: rgb(154, 154, 209);
+    }
+}

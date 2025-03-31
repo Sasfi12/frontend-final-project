@@ -26,7 +26,7 @@ export default function Details() {
             <img src={selected.image_url}  alt="" />
             <p>{selected.description}</p>
             
-            <button onClick={() => 
+            <button className="add-to-cart" onClick={() => 
             dispatch( 
                 addToCart({
                     title : selected.title, 

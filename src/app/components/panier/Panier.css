@@ -6,30 +6,23 @@
     right: 0;
     top: 0;
     z-index: 1;
+    animation: from-east 0.2s;
      .buttons {
           display: flex;
           justify-content: space-evenly;
-          .close-button , .reset-button {
-               display: flex;
-               width: fit-content;
-               cursor: pointer;
-               border: solid;
-               border-radius: 50px; 
-               padding: 5px;
-               background-color: brown;
-               transition: 0.5s;
-               &:hover {
-                    transition: 0.2s;
-                    background-color: red;
-               }
-               &:active {
-                    transition: 0.2s;
-                    background-color: rgb(233, 81, 81);
-               }
           }
      }
      .panier-elem {
+          margin-top: 5rem;
+          position: relative;
+          border: solid;
           display: flex;
+          gap: 1rem;
+          .option-button {
+               position: absolute;
+               right: 0;
+               bottom: 0;
+          }
           .panier-elem-text {
                display: flex;
                flex-direction: column;
@@ -41,5 +34,31 @@
                min-width: 100px;
           }
      }
-   
+     .option-button {
+          display: flex;
+          width: fit-content;
+          cursor: pointer;
+          border: solid;
+          border-radius: 50px; 
+          padding: 0.5px;
+          background-color: brown;
+          transition: 0.5s;
+          &:hover {
+               transition: 0.2s;
+               background-color: red;
+          }
+          &:active {
+               transition: 0.2s;
+               background-color: rgb(233, 81, 81);
+          }
+     }
+
+@keyframes from-east {
+     from {
+          transform: translateX(1000px);
+     }
+     to {
+          transform: translateX(0px);
+     }
+     
 }

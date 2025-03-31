@@ -21,8 +21,9 @@ export const HandlePanier = createSlice(
 
                 
             }, 
-            removeFromCart : () => {
-                state.content.forEach
+            removeFromCart : (state , action) => {
+                state.content = state.content.filter((e) => e.id != action.payload)
+                console.log(action.payload)
             }, 
             resetCart : (state  ) => {
                 state.content = initialState.content

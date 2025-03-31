@@ -8,9 +8,8 @@ export default function Panier() {
     return (
         <div className="panier-wrapper">
             <div className="buttons">
-                <h1 className="option-button" alt="close" onClick={() => dispatch(changeToggle())}>CLOSE</h1>
-                <h1 className="option-button" alt="reset" onClick={() => dispatch(resetCart())}>RESET</h1>    
-                    
+                <h1 className="option-button close" alt="close" onClick={() => dispatch(changeToggle())}>CLOSE</h1>
+                <h1 className="option-button reset" alt="reset" onClick={() => dispatch(resetCart())}>RESET</h1>      
             </div>
             <h1 className="text-center fs-6">List of Favorites </h1>
             <div className="panier-container">
@@ -18,11 +17,13 @@ export default function Panier() {
                 {panier ? panier.map((e) => {
                     return (
                         <div className="panier-elem" key={e.id}>
+                            <div className="img-container">
                             <img src={e.image} alt={`image_${e.id}`}/>
+                            </div>
                             <div className="panier-elem-text">
-                                <p>{e.title} </p>
-                                <p>{e.rating}</p>
-                                <p>{e.format}</p>
+                                <p>title :{e.title} </p>
+                                <p>rating :{e.rating}</p>
+                                <p>format :{e.format}</p>
                                 <button className="option-button" onClick={() => dispatch( removeFromCart(e.id) )}>Remove </button>
 
                             </div>

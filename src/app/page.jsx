@@ -9,14 +9,11 @@ import Featured from "./components/featured/Features";
 export default function Home() {
   const data = useContext(DataProvider).data
   return (
-    data ? 
     <div className="main-page min-w-full ">
-      <Image src={ReadLeaf} height={250} width={250} alt="ReadLeaf logo"/>
-      <h1 className="title text-5xl text-center">Welcome to ReadLeaf</h1> 
-      <Carousel/>
-      <Featured/>
+      <h1 className="title text-5xl text-center">Welcome to ReadLeaf</h1>
+
+      <Carousel data={data}/>
+      <Featured data={data}/>
     </div>
-    : 
-    <h1>Loading...</h1>
   );
 }

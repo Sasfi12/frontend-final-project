@@ -26,11 +26,11 @@
     border: solid;
     padding: 5px;
     border-radius: 50px;
-    background-color: aqua;
     &:hover {
-        background-color: blue;
+        background-color: olivedrab;
     }
     &:active {
-        background-color: rgb(154, 154, 209);
+        transition: 0.1s;
+        background-color: rgb(188, 226, 112);
     }
 }

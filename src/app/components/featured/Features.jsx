@@ -1,7 +1,13 @@
-export default function Featured() {
+
+export default function Featured({well_rated , recommended}) {
     return (
-        <div>
-            <h1>Featured</h1>
-        </div>
+        <section className="featured-items">
+            <div className="good-rates-section">
+                well rated items 
+            </div>
+            <div>
+                recommended books 
+            </div>
+        </section>
     )
 }

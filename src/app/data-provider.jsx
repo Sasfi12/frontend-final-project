@@ -24,7 +24,7 @@ export default function Data ({children}) {
             </DataProvider.Provider>
               : 
               <div className="loading-container">
-              <Image alt="loading-logo" src={logo} className="loading-screen"/>
+              <Image alt="loading-logo" src={logo} className="loading-image"/>
               <h1 className="loading-text">Fetching data...</h1>
               </div>}
         </> 

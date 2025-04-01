@@ -10,16 +10,37 @@ export default function Home() {
   const randomize = () => {
     return data[Math.floor(Math.random() * data.length )] 
   }
+  const allWellRated = () => {
+    let array = [] ;
+    data.forEach(e => {
+      if(e.rating >= 4.5) {
+        array = [...array , e]
+      }
+    })
+    return array;
+  }
+  const recommendedId = () => {
+    const recommended = ["29" ,"44" , "45" , "81" , "108" , "167" , "38" ,"222" , "240"] 
+    let array = [] ;
+    data.forEach(e => {
+      if (recommended.includes(e.id)) {
+        array = [...array , e]
+        console.log(e)
+      }
+    })
+    return array
+  
+  }
   const [randomData, setRandomData] = useState([
-                                                randomize(), 
-                                                randomize(), 
-                                                randomize(), 
-                                                randomize(), 
-                                                randomize()]
-  )
-  const [wellRated , setWellRated] = useState()
-  const [recommended , setRecommended] = useState()
-
+    randomize(), 
+    randomize(), 
+    randomize(), 
+    randomize(), 
+    randomize()]
+)
+  
+  const [wellRated , setWellRated] = useState(allWellRated)
+  const [recommended , setRecommended] = useState(recommendedId)
   return (
     <div className="main-page min-w-full ">
       <h1 className="title text-5xl text-center">Welcome to ReadLeaf</h1>

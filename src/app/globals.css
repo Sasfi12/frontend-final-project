@@ -11,27 +11,34 @@ body {
     position: absolute;
     top: 40%;
     left: 40%;
-    .loading-screen {
-        height: 250px;
-        width: 250px;
-        border-radius: 100px;
-        background-color: rgb(138, 221, 122);
-        animation: loading 1s infinite alternate;
-    }
-    .loading-text {
-        text-align: center;
-        font-size: 2rem;
-        animation: loading 1s infinite alternate;
-    }
+
+        .loading-image {
+            height: 250px;
+            width: 250px;
+            border-radius: 100px;
+            background-color: rgb(138, 221, 122);
+            animation: image_loading 1s infinite alternate;
+        }
+        .loading-text {
+            text-align: center;
+            font-size: 2rem;
+            animation: loading 1s infinite alternate;
+        }
 }
 @keyframes loading {
     from {
-        height: 200px ;
-        font-size: 1rem;
+        transform: rotateY(180deg);
     }
     to {
-        height: 250px ;
-        font-size: 2rem;
+        transform: rotateY(1);
     }
     
+}
+@keyframes image_loading {
+    from {
+        transform: rotateX(180deg);
+    }
+    to {
+        transform: rotateX(1)
+    }
 }

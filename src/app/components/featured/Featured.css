@@ -1,0 +1,74 @@
+.featured-items {
+    .good-rates-section {
+        .rate-title {
+            text-align: center;
+            font-size: 4rem;
+            text-decoration: underline;
+        }
+        .good-rates-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            .rate-item {
+                padding: 2rem;
+                position: relative;
+                margin: 20px;
+                border: solid;
+                width: 300px;
+                padding-top: 2rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                img {
+                    height: 300px;
+                    width: 200px;
+                }
+                .rate-rating {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    font-size: 2rem;
+                    color: slateblue;
+                }
+                .rate-title{
+                    font-size: 1.25rem;
+                    text-align: center;
+                }
+            }
+            
+        }
+    }
+    .recommended-section {
+        .recommended-title {
+            text-align: center;
+            font-size: 4rem;
+            text-decoration: underline;
+        }
+        .recommended-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            .recommended-item {
+                padding: 2rem;
+                position: relative;
+                margin: 20px;
+                border: solid;
+                width: 300px;
+                padding-top: 2rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                .recommended-title {
+                    font-size: 1.25rem;
+                }
+                img {
+                    height: 300px;
+                    width: 200px;
+                }
+                
+            }
+        }
+    }   
+}

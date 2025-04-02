@@ -40,10 +40,10 @@ export default function Details() {
                             ))
                     }>add to cart</button>
                     <div className="book-about-info text-1xl">
-                    <p className="text-gray-600">format : {selected.format}</p>
+                    <p className="text-gray-600 fs-1">format : {selected.format}</p>
                     <p className="text-gray-600">rating : {selected.rating}</p>
-                    <p className="text-gray-600">ratingCount : {selected.rating_count}</p>
-                    <p className="text-gray-600">numpages : {selected.num_pages}</p>
+                    <p className="text-gray-600">reviews : {selected.rating_count}</p>
+                    <p className="text-gray-600">pages : {selected.num_pages}</p>
                 </div>     
                 </div>
             </div>

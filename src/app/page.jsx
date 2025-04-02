@@ -20,23 +20,24 @@ export default function Home() {
     return array;
   }
   const recommendedId = () => {
-    const recommended = ["29" ,"44" , "45" , "81" , "108" , "167" , "38" ,"222" , "240"] 
+    const recommended = [29 ,44 , 45 , 81 , 108 , 167 , 38 ,222 , 240] 
     let array = [] ;
     data.forEach(e => {
       if (recommended.includes(e.id)) {
         array = [...array , e]
-        console.log(e)
       }
     })
     return array
   
   }
-  const [randomData, setRandomData] = useState([
+  const [randomData, setRandomData] = useState(
+    [
     randomize(), 
     randomize(), 
     randomize(), 
     randomize(), 
-    randomize()]
+    randomize()
+    ]
 )
   
   const [wellRated , setWellRated] = useState(allWellRated)

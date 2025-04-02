@@ -1,4 +1,4 @@
-.product-container { 
+.book-container { 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,6 +19,36 @@
                 transition: 0.1s;
                 background-color: rgb(188, 226, 112);
             }
+        }
+    }
+    .book-about {
+        display: flex;
+        
+    }
+    .book-info {
+        padding: 2rem;
+        gap: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: solid;
+        background-color: antiquewhite;
+        flex-direction: column;
+        .book-image {
+            gap: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        img {
+            height: 300px;
+            width: auto;
+        }
+    }
+        .book-about-inside {
+            display: flex;
+            gap: 30px;
+            flex-direction: column;
         }
     }
 }   

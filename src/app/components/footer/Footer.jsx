@@ -1,9 +1,12 @@
 export default function Footer() {
     return (
-        <footer>
-            <h1>
-                Footer
-            </h1>
+        <footer className="bg-black">
+            <div className="contact-us">
+
+            </div>
+            <div className="copyright">
+                copyright 
+            </div>
         </footer>
     )
 }

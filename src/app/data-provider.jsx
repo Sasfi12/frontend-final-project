@@ -7,9 +7,6 @@ export const DataProvider = createContext()
 export default function Data ({children}) {
     const [data , setData] = useState(null)
     const [error , setError] = useState(null)
-    setTimeout(() => {
-        
-    } , 1000)
     useEffect(() => {
         axios.get("https://example-data.draftbit.com/books")
         .then((response) => setData(response.data) )

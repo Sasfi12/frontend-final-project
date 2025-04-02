@@ -4,8 +4,10 @@ import { useContext, useState } from "react";
 import { DataProvider } from "./data-provider";
 import Carousel from "./components/carousel/Carousel";
 import Featured from "./components/featured/Features";
+import { useSelector } from "react-redux";
 export default function Home() {
   const data = useContext(DataProvider).data
+  const dark = useSelector((state) => state.darkmode.toggle)
   // randomized data for the carousel. 
   const randomize = () => {
     return data[Math.floor(Math.random() * data.length )] 
@@ -43,7 +45,7 @@ export default function Home() {
   const [wellRated , setWellRated] = useState(allWellRated)
   const [recommended , setRecommended] = useState(recommendedId)
   return (
-    <div className="main-page min-w-full ">
+    <div className={`main-page min-w-full ${dark && "dark"} `}>
       <h1 className="title text-5xl text-center">Welcome to ReadLeaf</h1>
 
       <Carousel randomized_data={randomData}/>

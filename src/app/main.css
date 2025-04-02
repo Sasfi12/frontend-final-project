@@ -6,3 +6,12 @@
     background-color: beige;
     padding-top: 50px;
 }
+.main-page.dark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column ;
+    background-color: rgb(90, 90, 82);
+    padding-top: 50px;
+    color: white;
+}

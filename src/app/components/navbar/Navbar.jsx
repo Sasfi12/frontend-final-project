@@ -13,9 +13,10 @@ import { useSelector , useDispatch } from "react-redux";
 export default function Navbar() {
     const dispatch = useDispatch() 
     const panier = useSelector((state) => state.panier.toggle)
+    const dark = useSelector((state) => state.darkmode.toggle)
     return (
     <div className="nav-panier-container">
-        <nav>
+        <nav className={dark ? "dark" : ""}>
                 <Image height={100} width={100} src={logo} alt="ReadLeaf_logo"/>
             <div className="nav-options">
                 <Link href="/">Home</Link>

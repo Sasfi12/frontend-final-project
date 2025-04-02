@@ -3,9 +3,17 @@
     z-index: 5;
     nav {
         display: flex;
+        background-color: blanchedalmond;
         align-items: center;
         justify-content: space-around;
-        box-shadow: 0px 0px 10px;
+        box-shadow: 0px 0px 10px; 
+        &.dark {
+            background-color: rgba(39, 30, 18, 0.521);
+            color: white;
+            align-items: center;
+            justify-content: space-around;
+            box-shadow: 0px 0px 10px black; 
+        }
         .title {
             text-decoration: underline;
             font-size: 2rem;
@@ -22,5 +30,8 @@
             }
         }
     }
-
+    nav.dark {
+        
+    } 
 }
+

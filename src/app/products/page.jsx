@@ -3,12 +3,14 @@ import { useContext, useEffect, useState } from "react"
 import Link from "next/link"
 import "./products.css"
 import { DataProvider } from "../data-provider"
+import { useSelector } from "react-redux"
 export default function Page() {
   const [searched , setSearched] = useState("")
   const [filter , setFilter] = useState("title")
   const [products , setProducts] = useState(useContext(DataProvider).data)
   const [data , setData] = useState("")
   const intFilters = ["id" , "above" , "below"]
+  const dark = useSelector((state) => state.darkmode.toggle)
   const selectedFilter = (e) => {
     setFilter(e.target.options[e.target.selectedIndex].value)
   }
@@ -47,7 +49,7 @@ useEffect(() => {
 
 
     return (
-      <div className="products-container">
+      <div className={`products-container ${dark ? "dark" : ""}`}>
         <h1 className="title-products-section">Our Products</h1>
         <div className="input-select">
         <input type="text" className="border-5" onChange={(event) => searchMade(event)}/>

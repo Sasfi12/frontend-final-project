@@ -1,5 +1,6 @@
 .nav-panier-container {
     position: relative;
+    z-index: 5;
     nav {
         display: flex;
         align-items: center;

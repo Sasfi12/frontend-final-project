@@ -17,11 +17,8 @@ export default function Details() {
     return (
         selected &&
         <div className="book-container">
-            <div className="nav-options ">
-                <Link draggable={false} className="option" href={"/products"}>Browse More </Link>
-                <Link draggable={false} className="option" href={"/"}>Go Back to home</Link>
-            </div>
-            <h1 className="text-3xl"><span>{selected.title}</span></h1>
+            <div className="book-card-title">
+            <h1 className=" book-title text-3xl"><span>{selected.title}</span></h1>
             <div className="book-info">
                 
                 <div className="book-image">
@@ -42,22 +39,26 @@ export default function Details() {
                             }
                             ))
                     }>add to cart</button>
+                    <div className="book-about-info text-1xl">
+                    <p className="text-gray-600">format : {selected.format}</p>
+                    <p className="text-gray-600">rating : {selected.rating}</p>
+                    <p className="text-gray-600">ratingCount : {selected.rating_count}</p>
+                    <p className="text-gray-600">numpages : {selected.num_pages}</p>
+                </div>     
                 </div>
             </div>
-
+            </div>
+               
             <div className="book-about d-flex flex-column">
+                <div>
+                    <h1 className="text-4xl">About: </h1>
+                <p className="text-2xl">{selected.description}</p>
+                </div>    
 
-                <p>{selected.description}</p>
-
-
-                <div className="book-infos">
-                    <p>format : {selected.format}</p>
-                    <p>rating : {selected.rating}</p>
-                    <p>ratingCount : {selected.rating_count}</p>
-                    <p>numpages : {selected.num_pages}</p>
-                </div>
+               
 
             </div>
+            
         </div>
     )
 }

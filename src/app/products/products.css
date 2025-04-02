@@ -6,7 +6,10 @@
     justify-content: space-evenly;
     margin-bottom: 100px;
 }
-
+.products-container {
+    height: 100%;
+    width: auto;
+}
 .articles {
     display: flex;
     justify-content: center;

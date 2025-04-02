@@ -47,7 +47,7 @@ useEffect(() => {
 
 
     return (
-      <div>
+      <div className="products-container">
         <h1 className="title-products-section">Our Products</h1>
         <div className="input-select">
         <input type="text" className="border-5" onChange={(event) => searchMade(event)}/>

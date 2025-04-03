@@ -7,6 +7,7 @@
     margin-bottom: 100px;
 }
 .products-container {
+    min-height: 80vh;
     height: 100%;
     width: auto;
     padding-bottom: 100px;

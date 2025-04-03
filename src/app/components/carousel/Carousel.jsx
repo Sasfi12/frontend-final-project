@@ -3,7 +3,6 @@ import "./Carousel.css"
 import Link from "next/link";
 export default function Carousel({randomized_data}) { 
     const [currentIndex , setCurrentIndex] = useState(0);
-    const [previousIndex , setPreviousIndex] = useState(null)
     const prevElem = () => {
         
         if(currentIndex == 2) setCurrentIndex(() => -2) 
@@ -22,14 +21,7 @@ export default function Carousel({randomized_data}) {
         if(currentIndex == -2) setTimeout(() =>{if(currentIndex == -2) setCurrentIndex(2)} , 12000)
  
     } , [currentIndex])
-    console.log(previousIndex , currentIndex)
-    // useEffect(() => {
-    //     let interval = setInterval(() => {
-    //       setSecondsDown((prevSeconds) => --prevSeconds);
-    //     }, 1000); // Set interval to 1s for realistic timing
-      
-    //     return () => clearInterval(interval);
-    //   }, []);
+
     return (
         <section className="carousel-section">
             <button className="previous-button" onClick={() => prevElem()}>Previous</button>

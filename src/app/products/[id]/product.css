@@ -90,6 +90,7 @@
     .book-container {
         flex-direction: column;
         height: fit-content;
+        gap: 5rem;
         .book-about {
             width: fit-content ;
         }
@@ -104,6 +105,7 @@
 
 }
 .book-about-text {
+    padding-bottom: 5rem;
     width: 100%;
     font-size: 1.05rem;
 }

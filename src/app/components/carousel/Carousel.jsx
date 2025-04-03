@@ -3,18 +3,26 @@ import "./Carousel.css"
 import Link from "next/link";
 export default function Carousel({randomized_data}) { 
     const [currentIndex , setCurrentIndex] = useState(0);
+    const [previousIndex , setPreviousIndex] = useState(null)
     const prevElem = () => {
-        if(currentIndex == 2) setCurrentIndex(-2) 
-        else if(currentIndex !== 2) setCurrentIndex((currentIndex) => currentIndex + 1)
+        
+        if(currentIndex == 2) setCurrentIndex(() => -2) 
+        else if(currentIndex !== 2) setCurrentIndex((PreviousIndex) => PreviousIndex + 1)
     }
     const nextElem = () => {
-        if(currentIndex == -2) setCurrentIndex(2)
-        else if(currentIndex !== -2) setCurrentIndex((currentIndex) => currentIndex - 1)
+        
+        if(currentIndex !== -2) setCurrentIndex((PreviousIndex) => PreviousIndex - 1)
+        else if(currentIndex == -2) setCurrentIndex(() => 2)
     }
     useEffect(() => {
-       let carouselInterval =  setInterval( nextElem, 2000)
+       let carouselInterval =  setInterval(()=>  nextElem(), 12000)
         return () => clearInterval(carouselInterval)
     },[])
+    useEffect(() => {
+        if(currentIndex == -2) setTimeout(() =>{if(currentIndex == -2) setCurrentIndex(2)} , 12000)
+ 
+    } , [currentIndex])
+    console.log(previousIndex , currentIndex)
     // useEffect(() => {
     //     let interval = setInterval(() => {
     //       setSecondsDown((prevSeconds) => --prevSeconds);

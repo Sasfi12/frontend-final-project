@@ -13,6 +13,7 @@ body {
     align-items: center;
     height: 100vh;
     width: 100vw;
+    background-color: olive;
         .loading-image {
             height: 250px;
             width: 250px;

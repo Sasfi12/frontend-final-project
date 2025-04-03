@@ -52,7 +52,7 @@ export default function Details() {
             <div className="book-about d-flex flex-column">
                 <div>
                     <h1 className="text-4xl">About: </h1>
-                    <p className="text-2xl">{selected.description}</p>
+                    <p className="text-1xl book-about-text">{selected.description}</p>
                 </div>
 
 

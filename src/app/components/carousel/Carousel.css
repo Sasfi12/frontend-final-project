@@ -19,7 +19,6 @@
             align-items: center;
             gap: 50rem;
             .carousel-item {
-                border: solid;
                 display: flex;
                 height: 100%;
                 width: 300px;
@@ -47,5 +46,11 @@
     }
     &:active {
         background-color: greenyellow;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        transform: scale(0.5);
     }
 }

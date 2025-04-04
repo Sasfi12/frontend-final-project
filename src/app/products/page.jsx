@@ -9,6 +9,7 @@ export default function Page() {
   const [filter , setFilter] = useState("title")
   const [products , setProducts] = useState(useContext(DataProvider).data)
   const [data , setData] = useState("")
+  const [genre , setGenre] = useState("all")
   const intFilters = ["id" , "above" , "below"]
   const dark = useSelector((state) => state.darkmode.toggle)
   const selectedFilter = (e) => {
@@ -17,13 +18,18 @@ export default function Page() {
   const searchMade = (e) => {
     setSearched(e.target.value)
   }
+  const setFiltered = (e) => {
+    setGenre(e.target.options[e.target.selectedIndex].value)
+    
+  }
+  console.log(genre)
 useEffect(() => {
-  updateData(filter)
+  updateData(filter , genre)
 } , [filter , searched])
 
-  const updateData = (check) =>{
-    if(check != "") {
-    switch (check) {
+  const updateData = (checkSearchFilter , checkGenreFilter) =>{
+    if(checkSearchFilter != "") {
+    switch (checkSearchFilter) {
       case "title":
         setData(products.filter((e) => e.title.toLowerCase().trim().includes(searched.toLowerCase().trim()) ) )
         break;
@@ -34,17 +40,13 @@ useEffect(() => {
         setData(products.filter((e) => e.edition.toLowerCase().trim().includes(searched.toLowerCase().trim()) )) 
         break; 
       case "id": 
-        setData(products.filter((e) => e.id.toString().toLowerCase().trim() == searched.toString() )) 
+        setData(products.filter((e) => e.id.toString().toLowerCase().trim() == searched.toString())) 
         break; 
-      case "above": 
-        setData(products.filter((e) =>  e.rating >= parseFloat(searched))) 
-      break; 
-      case "below": 
-        setData(products.filter((e) => e.rating <= parseFloat(searched))) 
-      break;
-     
+      case "genre": 
+        setData(products.filter((e) => e.genre_list.trim().toLowerCase().includes(searched.toLowerCase())))
 
     }}
+    
     }
 
 
@@ -58,9 +60,18 @@ useEffect(() => {
           <option className="border-5 border-black" value="authors">Search by author</option>
           <option className="border-5 border-black" value="edition">Search by edition name</option>
           <option className="border-5 border-black" value="id">search by id</option>
-          <option className="border-5 border-black" value="above">rating above</option>
-          <option className="border-5 border-black" value="below">rating below</option>
+          <option className="border-5 border-black" value="genre">search by genre</option>
         </select>
+        <div>
+        <select className="border-5" onChange={(event) => setFiltered(event)} name="filters" id="filters">
+          <option className="border-5 border-black" value="All">All</option>
+          <option className="border-5 border-black" value="Science Fiction">Science Fiction</option>
+          <option className="border-5 border-black" value="Fantasy">Fantasy</option>
+          <option className="border-5 border-black" value="Young Adult">Young Adult</option>
+          <option className="border-5 border-black" value="Dystopia">Dystopia</option>
+          
+        </select>
+        </div>
         </div>
       <ul className="articles">
         

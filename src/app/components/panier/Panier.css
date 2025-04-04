@@ -86,6 +86,9 @@
           background-color: rgb(240, 201, 201);
      }
 }
+.title-products-section {
+     font-size: 2rem;
+}
 @keyframes from-east {
      from {
           transform: translateX(1000px);

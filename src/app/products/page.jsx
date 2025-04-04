@@ -7,9 +7,10 @@ import { useSelector } from "react-redux"
 export default function Page() {
   const [searched , setSearched] = useState("")
   const [filter , setFilter] = useState("title")
-  const [products , setProducts] = useState(useContext(DataProvider).data)
-  const [data , setData] = useState("")
-  const [genre , setGenre] = useState("all")
+  const [genre , setGenre] = useState("All")
+  const [products , setProducts] = useState(useContext(DataProvider).data) // Valeur initial 
+  const [filteredByGenre , setFilteredByGenre] = useState(products) // valeur filtrer sur base du genre.
+  const [data , setData] = useState("") // Valeur final 
   const intFilters = ["id" , "above" , "below"]
   const dark = useSelector((state) => state.darkmode.toggle)
   const selectedFilter = (e) => {
@@ -18,42 +19,104 @@ export default function Page() {
   const searchMade = (e) => {
     setSearched(e.target.value)
   }
-  const setFiltered = (e) => {
+  const filtered = (e) => {
     setGenre(e.target.options[e.target.selectedIndex].value)
-    
   }
-  console.log(genre)
+
+
 useEffect(() => {
-  updateData(filter , genre)
-} , [filter , searched])
+  const runFiltering = () => {
 
-  const updateData = (checkSearchFilter , checkGenreFilter) =>{
-    if(checkSearchFilter != "") {
-    switch (checkSearchFilter) {
-      case "title":
-        setData(products.filter((e) => e.title.toLowerCase().trim().includes(searched.toLowerCase().trim()) ) )
-        break;
-      case "authors":
-        setData(products.filter((e) => e.authors.toLowerCase().trim().includes(searched.toLowerCase().trim()) )) 
-        break;
-      case "edition":
-        setData(products.filter((e) => e.edition.toLowerCase().trim().includes(searched.toLowerCase().trim()) )) 
-        break; 
-      case "id": 
-        setData(products.filter((e) => e.id.toString().toLowerCase().trim() == searched.toString())) 
-        break; 
-      case "genre": 
-        setData(products.filter((e) => e.genre_list.trim().toLowerCase().includes(searched.toLowerCase())))
-
-    }}
-    
+    let genreFiltered = products;
+    if (genre !== "All") {
+      genreFiltered = products.filter((e) =>
+        e.genre_list.split(",").includes(genre)
+      );
     }
+
+    let finalFiltered = genreFiltered;
+    if (searched.trim() !== "") {
+      switch (filter) {
+        case "title":
+          finalFiltered = genreFiltered.filter((e) =>
+            e.title.toLowerCase().includes(searched.toLowerCase())
+          );
+          break;
+        case "authors":
+          finalFiltered = genreFiltered.filter((e) =>
+            e.authors.toLowerCase().includes(searched.toLowerCase())
+          );
+          break;
+        case "edition":
+          finalFiltered = genreFiltered.filter((e) =>
+            e.edition.toLowerCase().includes(searched.toLowerCase())
+          );
+          break;
+        case "id":
+          finalFiltered = genreFiltered.filter(
+            (e) => e.id.toString() === searched.toString()
+          );
+          break;
+        case "genre":
+          finalFiltered = genreFiltered.filter((e) =>
+            e.genre_list.toLowerCase().includes(searched.toLowerCase())
+          );
+          break;
+        default:
+          break;
+      }
+    }
+
+    setFilteredByGenre(genreFiltered);
+    setData(finalFiltered);
+  };
+
+  runFiltering();
+}, [filter, searched, genre, products]);
+
+// const update = () => {
+//   filterData(genre)
+//   updateData(filter , genre)
+
+// }
+//   const filterData = (check) => {
+//     setFilteredByGenre(products)
+//     switch(check) {
+      
+//       case "All": 
+//        return setFilteredByGenre(products)
+//       default:  
+//        return setFilteredByGenre(products.filter((e) => e.genre_list.split(",").includes(check)))
+//     }
+// }
+//   console.log(filteredByGenre)
+//   const updateData = (checkSearchFilter) =>{
+//     if(checkSearchFilter != "") {
+    
+//     switch (checkSearchFilter) {
+//       case "title":
+//         setData(filteredByGenre.filter((e) => e.title.toLowerCase().trim().includes(searched.toLowerCase().trim())) )
+//         break;
+//       case "authors":
+//         setData(filteredByGenre.filter((e) => e.authors.toLowerCase().trim().includes(searched.toLowerCase().trim()) )) 
+//         break;
+//       case "edition":
+//         setData(filteredByGenre.filter((e) => e.edition.toLowerCase().trim().includes(searched.toLowerCase().trim()) )) 
+//         break; 
+//       case "id": 
+//         setData(filteredByGenre.filter((e) => e.id.toString().toLowerCase().trim() == searched.toString())) 
+//         break; 
+//       case "genre": 
+//         setData(filteredByGenre.filter((e) => e.genre_list.trim().toLowerCase().includes(searched.toLowerCase())))
+//       }}
+// }
 
 
     return (
       <div className={`products-container ${dark ? "dark" : ""}`}>
         <h1 className="title-products-section">Our Products</h1>
         <div className="input-select">
+        <div className="advanced-search-container">
         <input type="text" className="border-5" onChange={(event) => searchMade(event)}/>
         <select className="border-5" onChange={(event) => selectedFilter(event)} name="filters" id="filters">
           <option className="border-5 border-black" value="title">Search by title </option>
@@ -62,16 +125,15 @@ useEffect(() => {
           <option className="border-5 border-black" value="id">search by id</option>
           <option className="border-5 border-black" value="genre">search by genre</option>
         </select>
-        <div>
-        <select className="border-5" onChange={(event) => setFiltered(event)} name="filters" id="filters">
+        </div>
+        <select className="border-5" onChange={(event) => filtered(event)} name="filters" id="filters">
           <option className="border-5 border-black" value="All">All</option>
           <option className="border-5 border-black" value="Science Fiction">Science Fiction</option>
           <option className="border-5 border-black" value="Fantasy">Fantasy</option>
           <option className="border-5 border-black" value="Young Adult">Young Adult</option>
           <option className="border-5 border-black" value="Dystopia">Dystopia</option>
-          
         </select>
-        </div>
+        
         </div>
       <ul className="articles">
         

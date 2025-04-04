@@ -1,4 +1,5 @@
 .panier-wrapper {
+padding-top: 2rem;
     height: 2000px;
     width: 400px;
     background-color: burlywood;
@@ -14,6 +15,9 @@
      .buttons {
           display: flex;
           justify-content: space-evenly;
+          * {
+               padding: 0.5rem;
+          }
           }
      }
      .panier-elem {

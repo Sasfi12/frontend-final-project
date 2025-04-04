@@ -35,10 +35,9 @@
     
 }
 .next-button , .previous-button{
-    text-decoration: overline;
     border: solid;
     border-radius: 50px;
-    padding: 0.5rem;
+    padding: 10px;
     z-index: 4;
     cursor: pointer;
     &:hover {

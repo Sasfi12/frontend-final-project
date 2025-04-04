@@ -90,3 +90,11 @@
     }
     
 }
+
+.advanced-search-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+.input-select {
+    
+}

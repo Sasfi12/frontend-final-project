@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -25,7 +25,7 @@ export default function Footer() {
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
-                  <Link href={"/"} className="hover:underline">
+                  <Link href={'/'} className="hover:underline">
                     ReadLeaf
                   </Link>
                 </li>
@@ -78,7 +78,7 @@ export default function Footer() {
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-            © 2023{" "}
+            © 2023{' '}
             <a href="https://ReadLeaf.com/" className="hover:underline">
               ReadLeaf™
             </a>

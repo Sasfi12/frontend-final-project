@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../../../../public/ReadLeaf.png"
+
 export default function Footer() {
     return (
         
@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
               <a href="https://ReadLeaf.com/" className="flex items-center justify-center">
-                  <Image src={logo} className="h-2xs w-2xs" alt="ReadLeaf Logo" />
+                  <Image src="/ReadLeaf.png" className="h-2xs w-2xs" alt="ReadLeaf Logo" />
               </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

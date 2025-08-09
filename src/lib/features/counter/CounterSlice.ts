@@ -1,5 +1,9 @@
 const { createSlice } = require("@reduxjs/toolkit");
-const initialState =  {
+import { RootState } from "../../store";
+interface CounterState {
+    count : number 
+}
+const initialState : CounterState =  {
     count: 0
 }
 const CounterSlice = createSlice(
@@ -7,13 +11,13 @@ const CounterSlice = createSlice(
         name: "counter",
         initialState,
         reducers : {
-            ad : (state) => {
+            ad : (state : CounterState) => {
                 state.count += 1 
             },
-            sb : (state) => {
+            sb : (state : CounterState) => {
                 state.count -= 1 
             },
-            reset : (state) => {
+            reset : (state : CounterState) => {
                 state.count = 0
             }
         }

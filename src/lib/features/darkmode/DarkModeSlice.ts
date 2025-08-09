@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit"
-interface DarmodeState {
+interface DarkmodeState {
     toggle : boolean
 }
-const initialState : DarmodeState = {
+const initialState : DarkmodeState = {
     toggle: false
 }
 const DarkModeSlice = createSlice( {
     name: "darkmode",
     initialState,
     reducers : {
-        darkModeClick : (state : DarmodeState) => {
+        darkModeClick : (state : DarkmodeState) => {
             state.toggle = !state.toggle
             console.log(state.toggle)
         } 

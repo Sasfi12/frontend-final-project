@@ -1,5 +1,5 @@
 import { Book } from "@/lib/apiTypes";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface PanierState {
     toggle : boolean, 
     content : Book[]
@@ -13,7 +13,7 @@ export const HandlePanier = createSlice(
         name:"panier" ,
         initialState,
         reducers: {
-            addToCart : (state : PanierState , action) => {
+            addToCart : (state : PanierState , action : PayloadAction<Book>) => {
                 let check = true ; 
                 state.content.forEach((elem : Book) => {
                     if(elem.id === action.payload.id) {
@@ -26,7 +26,7 @@ export const HandlePanier = createSlice(
 
                 
             }, 
-            removeFromCart : (state : PanierState , action) => {
+            removeFromCart : (state : PanierState , action : PayloadAction<number>) => {
                 state.content = state.content.filter((e) => e.id != action.payload)
                 console.log(action.payload)
             }, 

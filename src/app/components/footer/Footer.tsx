@@ -15,6 +15,8 @@ export default function Footer() {
                 src="/ReadLeaf.png"
                 className="h-2xs w-2xs"
                 alt="ReadLeaf Logo"
+                width={100}
+                height={100}
               />
             </a>
           </div>

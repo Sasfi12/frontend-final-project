@@ -1,4 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { Book } from "@/lib/apiTypes";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+interface PanierState {
+    toggle : boolean, 
+    content : Book[]
+}
 const initialState = {
     toggle: false, 
     content : []
@@ -8,9 +13,9 @@ export const HandlePanier = createSlice(
         name:"panier" ,
         initialState,
         reducers: {
-            addToCart : (state , action) => {
+            addToCart : (state : PanierState , action : PayloadAction<Book>) => {
                 let check = true ; 
-                state.content.forEach((elem) => {
+                state.content.forEach((elem : Book) => {
                     if(elem.id === action.payload.id) {
                         check = false  
                     } 
@@ -21,14 +26,14 @@ export const HandlePanier = createSlice(
 
                 
             }, 
-            removeFromCart : (state , action) => {
+            removeFromCart : (state : PanierState , action : PayloadAction<number>) => {
                 state.content = state.content.filter((e) => e.id != action.payload)
                 console.log(action.payload)
             }, 
-            resetCart : (state  ) => {
+            resetCart : (state : PanierState  ) => {
                 state.content = initialState.content
             },
-            changeToggle : (state) => {
+            changeToggle : (state : PanierState) => {
                 state.toggle = !state.toggle
             } 
         }

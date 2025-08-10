@@ -19,7 +19,12 @@ export const metadata = {
   description: "A website to learn more about books and select your favorites in order to add them to your list.",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout(
+                                    {
+                                    children
+                                    } : {
+                                    children: React.ReactNode
+                                    })  {
   return (
     <StoreProvider>
       <html lang="en">

@@ -1,9 +1,6 @@
 import { Book } from "@/lib/apiTypes";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-interface PanierState {
-    toggle : boolean, 
-    content : Book[]
-}
+import { PanierState } from "../sliceTypes";
 const initialState = {
     toggle: false, 
     content : []

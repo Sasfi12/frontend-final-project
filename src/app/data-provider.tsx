@@ -12,7 +12,6 @@ export default function Data ({
     children: React.ReactNode
   }) 
     {
-        console.log(DataProvider);
         const [data , setData] = useState()
         const [error , setError] = useState()
         useEffect(() => {

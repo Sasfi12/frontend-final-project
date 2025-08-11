@@ -8,7 +8,7 @@ export default function Page() {
   const [searched , setSearched] = useState("")
   const [filter , setFilter] = useState("title")
   const [genre , setGenre] = useState("All")
-  const [products , setProducts] = useState(useContext(DataProvider).data) // Valeur initial 
+  const [products , setProducts] = useState(useContext(DataProvider)) // Valeur initial 
   const [filteredByGenre , setFilteredByGenre] = useState(products) // valeur filtrer sur base du genre.
   const [data , setData] = useState("") // Valeur final 
   const intFilters = ["id" , "above" , "below"]

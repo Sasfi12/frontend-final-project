@@ -16,7 +16,3 @@ export type Book = {
     Quote2 : string, 
     Quote3 : string
 }
-
-export type FetchedData = {
-    data : Book[]
-}

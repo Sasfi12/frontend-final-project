@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
 import { Book } from "@/lib/apiTypes";
 export default function Home() {
-  const data = useContext(DataProvider).data
+  const data = useContext(DataProvider)
   const dark = useSelector<RootState>((state) => state.darkmode.toggle)
   // randomized data for the carousel. 
   const randomize = () => {

@@ -10,7 +10,7 @@ export default function Details() {
     const dark = useSelector((state) => state.darkmode.toggle)
     const dispatch = useDispatch()
     const id = useParams()
-    const data = useContext(DataProvider).data
+    const data = useContext(DataProvider)
     let selected;
     if (data) { selected = data.find((e) => e.id == id.id) }
     console.log(selected)

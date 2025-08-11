@@ -3,9 +3,9 @@ import logo from "../../public/ReadLeaf.png"
 import Image from "next/image";
 import  {createContext, useEffect, useState } from "react";
 import axios from "axios";
-import { FetchedData } from "@/lib/apiTypes";
+import { Book } from "@/lib/apiTypes";
 
-export const DataProvider = createContext<FetchedData>({ data: []})
+export const DataProvider = createContext<Book[]>([])
 export default function Data ({
     children
   }: {
@@ -24,7 +24,7 @@ export default function Data ({
         return (
             <>
             {data ?
-                <DataProvider.Provider value={{data}}>
+                <DataProvider.Provider value={data}>
                     {children}
                 </DataProvider.Provider>
                   : 

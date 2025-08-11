@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import "./Carousel.css"
 import Link from "next/link";
-export default function Carousel({randomized_data}) { 
+import { Book } from "@/lib/apiTypes";
+export default function Carousel({randomized_data} : {randomized_data : Book[]}) { 
     const [currentIndex , setCurrentIndex] = useState(0);
     const prevElem = () => {
         
@@ -14,7 +15,7 @@ export default function Carousel({randomized_data}) {
         else if(currentIndex == -2) setCurrentIndex((PreviousIndex) => 2)
     }
     useEffect(() => {
-       let carouselInterval = setInterval(()=>  nextElem(), 6000)
+       let carouselInterval : NodeJS.Timeout = setInterval(()=>  nextElem(), 6000)
         return () => clearInterval(carouselInterval)
     },[])
     useEffect(() => {

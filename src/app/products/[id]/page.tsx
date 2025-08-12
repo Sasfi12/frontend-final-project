@@ -7,7 +7,7 @@ import { DataProvider } from "@/app/data-provider";
 import { addToCart } from "@/lib/features/panier/TogglePanierSlice"
 import { Book } from "@/lib/apiTypes";
 import { useAppSelector , useAppDispatch } from "@/lib/hooks";
-export default function Details() {
+export default function Details() { 
     const dark = useAppSelector((state) => state.darkmode.toggle)
     const dispatch = useAppDispatch()
     const id  = useParams<{ id : string }>()
@@ -34,7 +34,7 @@ export default function Details() {
                                     id: selected.id,
                                     image: selected.image_url,
                                     rating: selected.rating,
-                                    format: selected.format,
+                                    format: selected.format, 
                                 }
                                 ))
                         }>add to cart</button>
@@ -42,7 +42,7 @@ export default function Details() {
                             <p>format : {selected.format}</p>
                             <p>rating : {selected.rating}</p>
                             <p>reviews : {selected.rating_count}</p>
-                            <p>pages : {selected.num_pages}</p>
+                            <p>pages : {selected.num_page}</p>
                         </div>
                     </div>
                 </div>

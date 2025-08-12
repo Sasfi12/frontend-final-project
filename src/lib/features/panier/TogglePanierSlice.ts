@@ -1,6 +1,6 @@
 import { Book } from "@/lib/apiTypes";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { PanierState } from "../sliceTypes";
+import { PanierState, recuperatedBook } from "../sliceTypes";
 const initialState = {
     toggle: false, 
     content : []
@@ -10,9 +10,9 @@ export const HandlePanier = createSlice(
         name:"panier" ,
         initialState,
         reducers: {
-            addToCart : (state : PanierState , action : PayloadAction<Book>) => {
+            addToCart : (state : PanierState , action : PayloadAction<recuperatedBook>) => {
                 let check = true ; 
-                state.content.forEach((elem : Book) => {
+                state.content.forEach((elem : recuperatedBook) => {
                     if(elem.id === action.payload.id) {
                         check = false  
                     } 

@@ -12,7 +12,7 @@ export default function Page() {
   const [genre , setGenre] = useState("All")
   const [products , setProducts] = useState(useContext(DataProvider)) // Valeur initial 
   const [filteredByGenre , setFilteredByGenre] = useState(products) // valeur filtrer sur base du genre.
-  const [data , setData] = useState<Book[]>([]) // Valeur final 
+  const [data , setData] = useState<Book[]>([]) // Valeur final : filtré sur base du genre et de la recherche. 
   const intFilters : string[] = ["id" , "above" , "below"]
   const dark = useAppSelector((state) => state.darkmode.toggle)
   const selectedFilter  = (e : React.ChangeEvent<HTMLSelectElement>) => {
@@ -75,44 +75,6 @@ useEffect(() => {
 
   runFiltering();
 }, [filter, searched, genre, products]);
-
-// const update = () => {
-//   filterData(genre)
-//   updateData(filter , genre)
-
-// }
-//   const filterData = (check) => {
-//     setFilteredByGenre(products)
-//     switch(check) {
-      
-//       case "All": 
-//        return setFilteredByGenre(products)
-//       default:  
-//        return setFilteredByGenre(products.filter((e) => e.genre_list.split(",").includes(check)))
-//     }
-// }
-//   console.log(filteredByGenre)
-//   const updateData = (checkSearchFilter) =>{
-//     if(checkSearchFilter != "") {
-    
-//     switch (checkSearchFilter) {
-//       case "title":
-//         setData(filteredByGenre.filter((e) => e.title.toLowerCase().trim().includes(searched.toLowerCase().trim())) )
-//         break;
-//       case "authors":
-//         setData(filteredByGenre.filter((e) => e.authors.toLowerCase().trim().includes(searched.toLowerCase().trim()) )) 
-//         break;
-//       case "edition":
-//         setData(filteredByGenre.filter((e) => e.edition.toLowerCase().trim().includes(searched.toLowerCase().trim()) )) 
-//         break; 
-//       case "id": 
-//         setData(filteredByGenre.filter((e) => e.id.toString().toLowerCase().trim() == searched.toString())) 
-//         break; 
-//       case "genre": 
-//         setData(filteredByGenre.filter((e) => e.genre_list.trim().toLowerCase().includes(searched.toLowerCase())))
-//       }}
-// }
-
 
     return (
       <div className={`products-container ${dark ? "dark" : ""}`}>

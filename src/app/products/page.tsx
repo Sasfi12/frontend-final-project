@@ -4,22 +4,24 @@ import Link from "next/link"
 import "./products.css"
 import { DataProvider } from "../data-provider"
 import { useAppSelector } from "@/lib/hooks"
+import { recuperatedBook } from "@/lib/features/sliceTypes"
+import { Book } from "@/lib/apiTypes"
 export default function Page() {
   const [searched , setSearched] = useState("")
   const [filter , setFilter] = useState("title")
   const [genre , setGenre] = useState("All")
   const [products , setProducts] = useState(useContext(DataProvider)) // Valeur initial 
   const [filteredByGenre , setFilteredByGenre] = useState(products) // valeur filtrer sur base du genre.
-  const [data , setData] = useState("") // Valeur final 
-  const intFilters = ["id" , "above" , "below"]
+  const [data , setData] = useState<Book[]>([]) // Valeur final 
+  const intFilters : string[] = ["id" , "above" , "below"]
   const dark = useAppSelector((state) => state.darkmode.toggle)
-  const selectedFilter = (e) => {
+  const selectedFilter  = (e : React.ChangeEvent<HTMLSelectElement>) => {
     setFilter(e.target.options[e.target.selectedIndex].value)
   }
-  const searchMade = (e) => {
+  const searchMade = (e : React.ChangeEvent<HTMLInputElement>) => {
     setSearched(e.target.value)
   }
-  const filtered = (e) => {
+  const filtered = (e : React.ChangeEvent<HTMLSelectElement>) => {
     setGenre(e.target.options[e.target.selectedIndex].value)
   }
 
@@ -138,7 +140,7 @@ useEffect(() => {
       <ul className="articles">
         
         { data ? 
-        data.map((elem) => (
+        data.map((elem : Book) => (
           <li key={elem.id}>
             <div className="see-more-and-id">
             <p className="id">id :{elem.id}</p>

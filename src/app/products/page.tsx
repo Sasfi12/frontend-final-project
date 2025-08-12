@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react"
 import Link from "next/link"
 import "./products.css"
 import { DataProvider } from "../data-provider"
-import { useSelector } from "react-redux"
+import { useAppSelector } from "@/lib/hooks"
 export default function Page() {
   const [searched , setSearched] = useState("")
   const [filter , setFilter] = useState("title")
@@ -12,7 +12,7 @@ export default function Page() {
   const [filteredByGenre , setFilteredByGenre] = useState(products) // valeur filtrer sur base du genre.
   const [data , setData] = useState("") // Valeur final 
   const intFilters = ["id" , "above" , "below"]
-  const dark = useSelector((state) => state.darkmode.toggle)
+  const dark = useAppSelector((state) => state.darkmode.toggle)
   const selectedFilter = (e) => {
     setFilter(e.target.options[e.target.selectedIndex].value)
   }

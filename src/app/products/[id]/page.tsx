@@ -5,15 +5,14 @@ import Link from "next/link";
 import "./product.css"
 import { DataProvider } from "@/app/data-provider";
 import { addToCart } from "@/lib/features/panier/TogglePanierSlice"
-import { useDispatch, useSelector } from "react-redux";
+import { Book } from "@/lib/apiTypes";
+import { useAppSelector , useAppDispatch } from "@/lib/hooks";
 export default function Details() {
-    const dark = useSelector((state) => state.darkmode.toggle)
-    const dispatch = useDispatch()
-    const id = useParams()
+    const dark = useAppSelector((state) => state.darkmode.toggle)
+    const dispatch = useAppDispatch()
+    const id  = useParams<{ id : string }>()
     const data = useContext(DataProvider)
-    let selected;
-    if (data) { selected = data.find((e) => e.id == id.id) }
-    console.log(selected)
+    const selected : Book | undefined = data?.find( (e) => e.id == Number(id.id) )
     return (
         selected &&
         <div className={`book-container ${dark ? "dark" : ""}`}>

@@ -10,10 +10,11 @@ import { useEffect, useState } from "react";
 import { changeToggle } from "@/lib/features/panier/TogglePanierSlice";
 import { darkModeClick } from "@/lib/features/darkmode/DarkModeSlice";
 import { useSelector , useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 export default function Navbar() {
-    const dispatch = useDispatch() 
-    const panier = useSelector((state) => state.panier.toggle)
-    const dark = useSelector((state) => state.darkmode.toggle)
+    const dispatch = useAppDispatch() 
+    const panier = useAppSelector((state) => state.panier.toggle)
+    const dark = useAppSelector((state) => state.darkmode.toggle)
     return (
     <div className="nav-panier-container">
         <nav className={dark ? "dark" : ""}>

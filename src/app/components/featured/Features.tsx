@@ -1,6 +1,7 @@
+import { Book } from "@/lib/apiTypes"
 import "./Featured.css"
 import Link from "next/link"
-export default function Featured({well_rated , recommended}) {
+export default function Featured({well_rated , recommended} : {well_rated : Book[] , recommended : Book[]}) {
     return (
         
         <section className="featured-items">

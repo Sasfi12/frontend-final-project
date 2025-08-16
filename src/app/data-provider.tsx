@@ -4,7 +4,6 @@ import Image from "next/image";
 import  {createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Book } from "@/lib/apiTypes";
-
 export const DataProvider = createContext<Book[]>([])
 export default function Data ({
     children

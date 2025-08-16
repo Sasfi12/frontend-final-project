@@ -13,7 +13,7 @@ export default function Navbar() {
     return (
     <div className="nav-panier-container">
         <nav className={dark ? "dark" : ""}>
-                <Image height={100} width={100} src="/moon-with-stars.png" alt="ReadLeaf_logo"/>
+                <Image height={100} width={100} src="/ReadLeaf.png" alt="ReadLeaf_logo"/>
             <div className="nav-options">
                 <Link href="/">Home</Link>
                 <Link href="/products">Products</Link>

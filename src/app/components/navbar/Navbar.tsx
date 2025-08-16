@@ -1,8 +1,6 @@
 "use client";
 import "./Navbar.css"
 import Image from "next/image";
-import moon from "../../../../public/moon-with-stars.png"
-import star from "../../../../public/star.svg"
 import logo from "../../../../public/ReadLeaf.png"
 import Link from "next/link";
 import Panier from "../panier/Panier";
@@ -22,8 +20,8 @@ export default function Navbar() {
                 <Link href="/products">Products</Link>
             </div>
             <div className={`nav-img`}>  
-                <Image onClick={() => dispatch( darkModeClick() )} className="img" src={moon} alt="dark mode image" height={40} width={40}/>
-                <Image  onClick={() => dispatch(changeToggle())} src={star} alt="star" height={40} width={40} />
+                <Image  onClick={() => dispatch( darkModeClick() )} className="img" src="/moon-with-stars.png" alt="dark mode image" height={40} width={40}/>
+                <Image   onClick={() => dispatch(changeToggle())} src="/star.svg" alt="star" height={40} width={40} />
             </div>
         </nav>
         {panier && <Panier/>}

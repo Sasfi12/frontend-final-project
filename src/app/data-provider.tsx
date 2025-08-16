@@ -1,5 +1,4 @@
 "use client";
-import logo from "../../public/ReadLeaf.png"
 import Image from "next/image";
 import  {createContext, useEffect, useState } from "react";
 import axios from "axios";
@@ -28,7 +27,7 @@ export default function Data ({
                 </DataProvider.Provider>
                   : 
                   <div className="loading-container">
-                  <Image alt="loading-logo" src={logo} className="loading-image"/>
+                  <Image width={300} height={300} alt="loading-logo" src="/ReadLeaf.png" className="loading-image"/>
                   <h1 className="loading-text">Fetching data...</h1>
                   </div>}
             </> 

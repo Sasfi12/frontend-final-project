@@ -6,10 +6,8 @@ import star from "../../../../public/star.svg"
 import logo from "../../../../public/ReadLeaf.png"
 import Link from "next/link";
 import Panier from "../panier/Panier";
-import { useEffect, useState } from "react";
 import { changeToggle } from "@/lib/features/panier/TogglePanierSlice";
 import { darkModeClick } from "@/lib/features/darkmode/DarkModeSlice";
-import { useSelector , useDispatch } from "react-redux";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 export default function Navbar() {
     const dispatch = useAppDispatch() 

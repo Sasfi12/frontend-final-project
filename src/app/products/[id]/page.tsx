@@ -1,7 +1,6 @@
 "use client"
 import { useParams } from "next/navigation"
 import { useContext } from "react";
-import Link from "next/link";
 import "./product.css"
 import { DataProvider } from "@/app/data-provider";
 import { addToCart } from "@/lib/features/panier/TogglePanierSlice"

@@ -1,8 +1,6 @@
 import "./Panier.css"
 import { changeToggle , resetCart } from "@/lib/features/panier/TogglePanierSlice";
-import { useDispatch , useSelector} from "react-redux";
 import { removeFromCart } from "@/lib/features/panier/TogglePanierSlice";
-import { AppDispatch, RootState } from "@/lib/store";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 export default function Panier() {
     const panier = useAppSelector((state) => state.panier.content)

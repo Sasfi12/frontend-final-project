@@ -4,7 +4,6 @@ import Link from "next/link"
 import "./products.css"
 import { DataProvider } from "../data-provider"
 import { useAppSelector } from "@/lib/hooks"
-import { recuperatedBook } from "@/lib/features/sliceTypes"
 import { Book } from "@/lib/apiTypes"
 export default function Page() {
   const [searched , setSearched] = useState("")

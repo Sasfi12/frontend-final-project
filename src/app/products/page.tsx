@@ -12,7 +12,7 @@ export default function Page() {
   const products = useContext(DataProvider) // Valeur initial 
   const [filteredByGenre , setFilteredByGenre] = useState(products) // valeur filtrer sur base du genre.
   const [data , setData] = useState<Book[]>([]) // Valeur final : filtré sur base du genre et de la recherche. 
-  const intFilters : string[] = ["id" , "above" , "below"]
+  const intFilters = ["id" , "above" , "below"]
   const dark = useAppSelector((state) => state.darkmode.toggle)
   const selectedFilter  = (e : React.ChangeEvent<HTMLSelectElement>) => {
     setFilter(e.target.options[e.target.selectedIndex].value)
@@ -101,7 +101,7 @@ useEffect(() => {
       <ul className="articles">
         
         { data ? 
-        data.map((elem : Book) => (
+        data.map((elem) => (
           <li key={elem.id}>
             <div className="see-more-and-id">
             <p className="id">id :{elem.id}</p>

@@ -11,7 +11,7 @@ export default function Details() {
     const dispatch = useAppDispatch()
     const id  = useParams<{ id : string }>()
     const data = useContext(DataProvider)
-    const selected : Book | undefined = data?.find( (e) => e.id == Number(id.id) )
+    const selected = data?.find( (e) => e.id == Number(id.id) )
     return (
         selected &&
         <div className={`book-container ${dark ? "dark" : ""}`}>

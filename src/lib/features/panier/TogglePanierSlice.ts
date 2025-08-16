@@ -1,11 +1,8 @@
 import { Book } from "@/lib/apiTypes";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { PanierState, recuperatedBook } from "../sliceTypes";
-type stateTypes = {
-    toggle: boolean, 
-    content: recuperatedBook[]
-}
-const initialState : stateTypes = {
+import { PanierState, recuperatedBook, panierTypes } from "../sliceTypes";
+
+const initialState : panierTypes = {
     toggle: false, 
     content : []
 }

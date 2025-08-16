@@ -14,3 +14,7 @@ export type recuperatedBook = {
 export type DarkmodeState =  {
     toggle : boolean
 }
+export type panierTypes = {
+    toggle: boolean, 
+    content: recuperatedBook[]
+}

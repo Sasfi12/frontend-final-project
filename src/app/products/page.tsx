@@ -10,9 +10,7 @@ export default function Page() {
   const [filter , setFilter] = useState("title")
   const [genre , setGenre] = useState("All")
   const products = useContext(DataProvider) // Valeur initial 
-  const [filteredByGenre , setFilteredByGenre] = useState(products) // valeur filtrer sur base du genre.
   const [data , setData] = useState<Book[]>([]) // Valeur final : filtré sur base du genre et de la recherche. 
-  const intFilters = ["id" , "above" , "below"]
   const dark = useAppSelector((state) => state.darkmode.toggle)
   const selectedFilter  = (e : React.ChangeEvent<HTMLSelectElement>) => {
     setFilter(e.target.options[e.target.selectedIndex].value)
@@ -55,7 +53,7 @@ useEffect(() => {
           break;
         case "id":
           finalFiltered = genreFiltered.filter(
-            (e) => e.id.toString() === searched.toString()
+            (e) => e.id.toString() === searched
           );
           break;
         case "genre":
@@ -67,8 +65,6 @@ useEffect(() => {
           break;
       }
     }
-
-    setFilteredByGenre(genreFiltered);
     setData(finalFiltered);
   };
 
@@ -122,7 +118,7 @@ useEffect(() => {
           
         )) : <h1>Loading...</h1>}
         
-        {data && data.length <= 0 && intFilters.includes(filter) ? <h1>Please enter a valid numerical value to find what you are looking for</h1>
+        {data && data.length <= 0  ? <h1>Please enter a valid numerical value to find what you are looking for</h1>
         : data && data.length <= 0 && <h1>No articles meet the search conditions</h1>}
       </ul>
 

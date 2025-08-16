@@ -3,23 +3,22 @@ import { useContext, useEffect, useState } from "react"
 import Link from "next/link"
 import "./products.css"
 import { DataProvider } from "../data-provider"
-import { useSelector } from "react-redux"
+import { useAppSelector } from "@/lib/hooks"
+import { Book } from "@/lib/apiTypes"
 export default function Page() {
   const [searched , setSearched] = useState("")
   const [filter , setFilter] = useState("title")
   const [genre , setGenre] = useState("All")
-  const [products , setProducts] = useState(useContext(DataProvider).data) // Valeur initial 
-  const [filteredByGenre , setFilteredByGenre] = useState(products) // valeur filtrer sur base du genre.
-  const [data , setData] = useState("") // Valeur final 
-  const intFilters = ["id" , "above" , "below"]
-  const dark = useSelector((state) => state.darkmode.toggle)
-  const selectedFilter = (e) => {
+  const products = useContext(DataProvider) // Valeur initial 
+  const [data , setData] = useState<Book[]>([]) // Valeur final : filtré sur base du genre et de la recherche. 
+  const dark = useAppSelector((state) => state.darkmode.toggle)
+  const selectedFilter  = (e : React.ChangeEvent<HTMLSelectElement>) => {
     setFilter(e.target.options[e.target.selectedIndex].value)
   }
-  const searchMade = (e) => {
+  const searchMade = (e : React.ChangeEvent<HTMLInputElement>) => {
     setSearched(e.target.value)
   }
-  const filtered = (e) => {
+  const filtered = (e : React.ChangeEvent<HTMLSelectElement>) => {
     setGenre(e.target.options[e.target.selectedIndex].value)
   }
 
@@ -54,7 +53,7 @@ useEffect(() => {
           break;
         case "id":
           finalFiltered = genreFiltered.filter(
-            (e) => e.id.toString() === searched.toString()
+            (e) => e.id.toString() === searched
           );
           break;
         case "genre":
@@ -66,51 +65,11 @@ useEffect(() => {
           break;
       }
     }
-
-    setFilteredByGenre(genreFiltered);
     setData(finalFiltered);
   };
 
   runFiltering();
 }, [filter, searched, genre, products]);
-
-// const update = () => {
-//   filterData(genre)
-//   updateData(filter , genre)
-
-// }
-//   const filterData = (check) => {
-//     setFilteredByGenre(products)
-//     switch(check) {
-      
-//       case "All": 
-//        return setFilteredByGenre(products)
-//       default:  
-//        return setFilteredByGenre(products.filter((e) => e.genre_list.split(",").includes(check)))
-//     }
-// }
-//   console.log(filteredByGenre)
-//   const updateData = (checkSearchFilter) =>{
-//     if(checkSearchFilter != "") {
-    
-//     switch (checkSearchFilter) {
-//       case "title":
-//         setData(filteredByGenre.filter((e) => e.title.toLowerCase().trim().includes(searched.toLowerCase().trim())) )
-//         break;
-//       case "authors":
-//         setData(filteredByGenre.filter((e) => e.authors.toLowerCase().trim().includes(searched.toLowerCase().trim()) )) 
-//         break;
-//       case "edition":
-//         setData(filteredByGenre.filter((e) => e.edition.toLowerCase().trim().includes(searched.toLowerCase().trim()) )) 
-//         break; 
-//       case "id": 
-//         setData(filteredByGenre.filter((e) => e.id.toString().toLowerCase().trim() == searched.toString())) 
-//         break; 
-//       case "genre": 
-//         setData(filteredByGenre.filter((e) => e.genre_list.trim().toLowerCase().includes(searched.toLowerCase())))
-//       }}
-// }
-
 
     return (
       <div className={`products-container ${dark ? "dark" : ""}`}>
@@ -159,7 +118,7 @@ useEffect(() => {
           
         )) : <h1>Loading...</h1>}
         
-        {data && data.length <= 0 && intFilters.includes(filter) ? <h1>Please enter a valid numerical value to find what you are looking for</h1>
+        {data && data.length <= 0 && filter === "id"  ? <h1>Id does not meet search condition or does not exist</h1>
         : data && data.length <= 0 && <h1>No articles meet the search conditions</h1>}
       </ul>
 

@@ -1,19 +1,17 @@
 "use client"
 import { useParams } from "next/navigation"
 import { useContext } from "react";
-import Link from "next/link";
 import "./product.css"
 import { DataProvider } from "@/app/data-provider";
 import { addToCart } from "@/lib/features/panier/TogglePanierSlice"
-import { useDispatch, useSelector } from "react-redux";
-export default function Details() {
-    const dark = useSelector((state) => state.darkmode.toggle)
-    const dispatch = useDispatch()
-    const id = useParams()
-    const data = useContext(DataProvider).data
-    let selected;
-    if (data) { selected = data.find((e) => e.id == id.id) }
-    console.log(selected)
+import { Book } from "@/lib/apiTypes";
+import { useAppSelector , useAppDispatch } from "@/lib/hooks";
+export default function Details() { 
+    const dark = useAppSelector((state) => state.darkmode.toggle)
+    const dispatch = useAppDispatch()
+    const id  = useParams<{ id : string }>()
+    const data = useContext(DataProvider)
+    const selected = data?.find( (e) => e.id == Number(id.id) )
     return (
         selected &&
         <div className={`book-container ${dark ? "dark" : ""}`}>
@@ -35,7 +33,7 @@ export default function Details() {
                                     id: selected.id,
                                     image: selected.image_url,
                                     rating: selected.rating,
-                                    format: selected.format,
+                                    format: selected.format, 
                                 }
                                 ))
                         }>add to cart</button>
@@ -43,7 +41,7 @@ export default function Details() {
                             <p>format : {selected.format}</p>
                             <p>rating : {selected.rating}</p>
                             <p>reviews : {selected.rating_count}</p>
-                            <p>pages : {selected.num_pages}</p>
+                            <p>pages : {selected.num_page}</p>
                         </div>
                     </div>
                 </div>

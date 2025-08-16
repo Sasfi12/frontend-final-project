@@ -1,15 +1,15 @@
 import "./Panier.css"
 import { changeToggle , resetCart } from "@/lib/features/panier/TogglePanierSlice";
-import { useDispatch , useSelector} from "react-redux";
 import { removeFromCart } from "@/lib/features/panier/TogglePanierSlice";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 export default function Panier() {
-    const panier = useSelector((state) => state.panier.content)
-    const dispatch = useDispatch()
+    const panier = useAppSelector((state) => state.panier.content)
+    const dispatch = useAppDispatch()
     return (
         <div className="panier-wrapper">
             <div className="buttons">
-                <h1 className="option-button close" alt="close" onClick={() => dispatch(changeToggle())}>CLOSE</h1>
-                <h1 className="option-button reset" alt="reset" onClick={() => dispatch(resetCart())}>RESET</h1>      
+                <h1 className="option-button close" onClick={() => dispatch(changeToggle())}>CLOSE</h1>
+                <h1 className="option-button reset" onClick={() => dispatch(resetCart())}>RESET</h1>      
             </div>
             <h1 className="text-center fs-6">List of Favorites </h1>
             <div className="panier-container">

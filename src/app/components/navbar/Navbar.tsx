@@ -1,7 +1,6 @@
 "use client";
 import "./Navbar.css"
 import Image from "next/image";
-import logo from "../../../../public/ReadLeaf.png"
 import Link from "next/link";
 import Panier from "../panier/Panier";
 import { changeToggle } from "@/lib/features/panier/TogglePanierSlice";

@@ -118,7 +118,7 @@ useEffect(() => {
           
         )) : <h1>Loading...</h1>}
         
-        {data && data.length <= 0  ? <h1>Please enter a valid numerical value to find what you are looking for</h1>
+        {data && data.length <= 0 && filter === "id"  ? <h1>Id does not meet search condition or does not exist</h1>
         : data && data.length <= 0 && <h1>No articles meet the search conditions</h1>}
       </ul>
 

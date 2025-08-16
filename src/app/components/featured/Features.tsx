@@ -1,7 +1,11 @@
 import { Book } from "@/lib/apiTypes"
 import "./Featured.css"
 import Link from "next/link"
-export default function Featured({well_rated , recommended} : {well_rated : Book[] , recommended : Book[]}) {
+interface catalogueBook {
+    well_rated : Book[],
+    recommended : Book[]
+}
+export default function Featured({well_rated , recommended} : catalogueBook) {
     return (
         
         <section className="featured-items">

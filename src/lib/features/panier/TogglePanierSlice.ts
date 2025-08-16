@@ -1,4 +1,3 @@
-import { Book } from "@/lib/apiTypes";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { PanierState, recuperatedBook, panierTypes } from "../sliceTypes";
 

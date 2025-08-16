@@ -1,5 +1,3 @@
-import { Book } from "../apiTypes"
-
 export type PanierState = {
     toggle : boolean, 
     content : recuperatedBook[]
